@@ -19,6 +19,7 @@ declare global {
       ambientLight: any;
       pointLight: any;
       fog: any;
+      [elemName: string]: any;
     }
   }
 }
@@ -224,7 +225,7 @@ export default function App() {
                       Machine Learning models are venturing into extreme frontiers: space exploration, nuclear facilities, and high-altitude aviation.
                     </p>
                     <p className="mb-4">
-                      In these environments, electronics are bombarded by radiation. High-energy particles can strike a transistor and flip a bit in memory—a phenomenon known as a <span className="font-bold text-blue-600">Single Event Effect (SEE)</span>.
+                      In these environments, electronics are bombarded by radiation. High-energy particles can strike a transistor and flip a bit in memory, a phenomenon known as a <a href="https://en.wikipedia.org/wiki/Single-event_upset" target="_blank" rel="noreferrer" className="font-bold text-blue-600 hover:underline">Single Event Effect (SEE)</a>.
                     </p>
                     <p>
                       This research explores how these microscopic errors can catastrophically break standard Convolutional Neural Networks (CNNs) and proposes a novel framework to build robust models using <strong>Rectified Weighted Gaussian (RWG)</strong> activation functions.
@@ -319,9 +320,9 @@ export default function App() {
                   </p>
 
                   <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
-                    <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 flex justify-between items-center">
+                    <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-2">
                       <h3 className="font-semibold text-slate-800">Activation Function Response</h3>
-                      <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Interactive Graph</span>
+                      <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-center">Interactive Graph</span>
                     </div>
                     <div className="p-6">
                       <ActivationPlayground />
@@ -379,17 +380,21 @@ export default function App() {
                          <div className="text-xs text-blue-700 mt-2">Using Smart Pooling with ReLU</div>
                       </div>
                       <div className="p-6 bg-purple-50 rounded-xl border border-purple-100 text-center">
-                         <div className="text-3xl font-bold text-purple-600 mb-2">Sensitive</div>
-                         <div className="text-sm font-medium text-purple-900">Bias Layers</div>
-                         <div className="text-xs text-purple-700 mt-2">Bias parameters are most fragile</div>
+                         <div className="text-2xl font-bold text-purple-600 mb-2">Bias Sensitivity</div>
+                         <div className="text-sm font-medium text-purple-900">High Layer Sensitivity</div>
+                         <div className="text-xs text-purple-700 mt-2">Bias parameters are disproportionately vulnerable</div>
                       </div>
                    </div>
 
                    <div className="text-center pt-8 border-t border-slate-200">
                      <h4 className="font-bold text-slate-900 mb-2">Conclusion</h4>
-                     <p className="max-w-3xl mx-auto text-slate-600">
+                     <p className="max-w-3xl mx-auto text-slate-600 mb-4">
                        The framework successfully demonstrates that architectural choices can inherently protect AI models from hardware faults without expensive hardware redundancy. <strong>RWG</strong> offers a passive, computationally efficient shield against radiation-induced errors.
                      </p>
+                     <a href="https://doi.org/10.5220/0013155000003890" target="_blank" rel="noreferrer" className="text-blue-600 font-medium hover:underline inline-flex items-center">
+                       Read the full paper for more details 
+                       <span className="ml-1">→</span>
+                     </a>
                    </div>
                 </div>
               </Section>

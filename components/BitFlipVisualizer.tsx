@@ -71,39 +71,38 @@ export const BitFlipVisualizer: React.FC = () => {
       </div>
 
       {/* Bits Grid */}
-      <div className="w-full overflow-x-auto no-scrollbar pb-4">
-        {/* Changed justify-center to justify-start and added mx-auto to allow scrolling from left on small screens while centering on large ones */}
+      {/* Added pt-2 to prevent top ring clipping */}
+      <div className="w-full overflow-x-auto no-scrollbar pb-4 pt-2">
         <div className="flex justify-start min-w-max space-x-1 px-4 mx-auto">
           {bits.map((bit, index) => {
             let colorClass = "bg-slate-200 text-slate-500 hover:bg-slate-300";
-            let label = "";
+            let label = null;
             let groupClass = "";
 
             if (index === 0) {
               colorClass = "bg-green-100 text-green-700 border-green-300 hover:bg-green-200"; // Sign
-              label = "S";
+              label = <span className="absolute left-1/2 -translate-x-1/2 text-[10px] font-bold text-green-600">S</span>;
             } else if (index >= 1 && index <= 8) {
               colorClass = "bg-red-100 text-red-700 border-red-300 hover:bg-red-200"; // Exponent
               groupClass = "border-t-4 border-red-400";
-              if (index === 4) label = "EXPONENT";
+              if (index === 4) label = <span className="absolute left-1/2 -translate-x-1/2 text-[10px] font-bold text-red-600 whitespace-nowrap">EXP</span>;
             } else {
               colorClass = "bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100"; // Mantissa
-              if (index === 20) label = "MANTISSA";
+              if (index === 20) label = <span className="absolute left-1/2 -translate-x-1/2 text-[10px] font-bold text-blue-400 whitespace-nowrap">MANTISSA</span>;
             }
 
             return (
-              <div key={index} className="flex flex-col items-center space-y-1">
+              // Enforce width on the column to prevent text from stretching it
+              <div key={index} className="flex flex-col items-center space-y-1 w-6 md:w-8 relative">
                  <button
                   onClick={() => toggleBit(index)}
-                  className={`w-6 h-10 md:w-8 md:h-12 flex items-center justify-center rounded border font-mono text-sm md:text-base font-bold transition-all shadow-sm ${colorClass} ${bit === '1' ? 'ring-2 ring-offset-1 ring-blue-400' : ''}`}
+                  className={`w-full h-10 md:h-12 flex items-center justify-center rounded border font-mono text-sm md:text-base font-bold transition-all shadow-sm ${colorClass} ${bit === '1' ? 'ring-2 ring-offset-1 ring-blue-400' : ''}`}
                   title={`Toggle Bit ${index}`}
                 >
                   {bit}
                 </button>
-                <div className="h-4">
-                  {index === 0 && <span className="text-[10px] font-bold text-green-600">S</span>}
-                  {index === 4 && <span className="text-[10px] font-bold text-red-600 whitespace-nowrap">EXP</span>}
-                  {index === 20 && <span className="text-[10px] font-bold text-blue-400 whitespace-nowrap">MANTISSA</span>}
+                <div className="h-4 w-full relative">
+                  {label}
                 </div>
               </div>
             );
