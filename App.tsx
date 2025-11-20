@@ -3,11 +3,25 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere, Stars, Float } from '@react-three/drei';
 import * as THREE from 'three';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ShieldAlert, Cpu, Activity, BarChart3, Zap } from 'lucide-react';
+import { ChevronDown, ShieldAlert, Cpu, Activity, BarChart3, Zap, Github } from 'lucide-react';
 import { SectionId } from './types';
 import { BitFlipVisualizer } from './components/BitFlipVisualizer';
 import { ActivationPlayground } from './components/ActivationPlayground';
 import { ResultsDashboard } from './components/ResultsDashboard';
+
+// Fix for missing R3F types in JSX.IntrinsicElements
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      instancedMesh: any;
+      dodecahedronGeometry: any;
+      meshPhongMaterial: any;
+      ambientLight: any;
+      pointLight: any;
+      fog: any;
+    }
+  }
+}
 
 // --- 3D Background Components ---
 
@@ -177,13 +191,19 @@ export default function App() {
               <Zap size={24} />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-slate-900">RobustNet</h1>
-              <p className="text-xs text-slate-500 uppercase tracking-wider">Research Visualization</p>
+              <h1 className="text-xl font-bold text-slate-900">SEU-Injection-Framework</h1>
+              <p className="text-xs text-slate-500 uppercase tracking-wider">Research by William Dennis</p>
             </div>
           </div>
-          <a href="https://doi.org/10.5220/0013155000003890" target="_blank" rel="noreferrer" className="text-sm text-blue-600 hover:underline font-medium">
-            View Paper Source
-          </a>
+          <div className="flex items-center space-x-4 md:space-x-6">
+            <a href="https://github.com/wd7512/seu-injection-framework" target="_blank" rel="noreferrer" className="text-sm text-slate-600 hover:text-slate-900 font-medium flex items-center transition-colors group">
+              <Github size={18} className="mr-2 text-slate-400 group-hover:text-slate-900" />
+              <span className="hidden sm:inline">GitHub</span>
+            </a>
+            <a href="https://doi.org/10.5220/0013155000003890" target="_blank" rel="noreferrer" className="text-sm text-blue-600 hover:underline font-medium">
+              View Paper
+            </a>
+          </div>
         </header>
 
         <main className="flex-grow flex flex-col items-center pt-10 pb-32 px-4">

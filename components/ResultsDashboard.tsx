@@ -14,27 +14,29 @@ export const ResultsDashboard: React.FC = () => {
   ];
 
   return (
-    <div className="w-full h-72">
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e2e8f0" />
-          <XAxis type="number" stroke="#94a3b8" fontSize={12} domain={[0, 0.03]} />
-          <YAxis type="category" dataKey="name" stroke="#475569" fontSize={11} width={100} />
-          <Tooltip 
-            cursor={{fill: '#f1f5f9'}}
-            contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-          />
-          <Bar dataKey="delta" radius={[0, 4, 4, 0]} barSize={24}>
-            {chartData.map((entry, index) => (
-              <Cell 
-                key={`cell-${index}`} 
-                fill={entry.type === 'Proposed' ? '#2563eb' : entry.type === 'Optimization' ? '#93c5fd' : '#cbd5e1'} 
-              />
-            ))}
-          </Bar>
-        </BarChart>
-      </ResponsiveContainer>
-      <div className="flex justify-center gap-6 mt-4">
+    <div className="w-full flex flex-col">
+      <div className="h-72 w-full">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e2e8f0" />
+            <XAxis type="number" stroke="#94a3b8" fontSize={12} domain={[0, 0.03]} />
+            <YAxis type="category" dataKey="name" stroke="#475569" fontSize={11} width={100} />
+            <Tooltip 
+              cursor={{fill: '#f1f5f9'}}
+              contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+            />
+            <Bar dataKey="delta" radius={[0, 4, 4, 0]} barSize={24}>
+              {chartData.map((entry, index) => (
+                <Cell 
+                  key={`cell-${index}`} 
+                  fill={entry.type === 'Proposed' ? '#2563eb' : entry.type === 'Optimization' ? '#93c5fd' : '#cbd5e1'} 
+                />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+      <div className="flex justify-center gap-6 mt-4 flex-wrap">
         <div className="flex items-center text-xs text-slate-500">
           <span className="w-3 h-3 bg-slate-300 rounded-sm mr-2"></span> Baseline
         </div>

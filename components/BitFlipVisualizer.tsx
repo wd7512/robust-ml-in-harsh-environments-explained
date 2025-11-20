@@ -72,7 +72,8 @@ export const BitFlipVisualizer: React.FC = () => {
 
       {/* Bits Grid */}
       <div className="w-full overflow-x-auto no-scrollbar pb-4">
-        <div className="flex justify-center min-w-[800px] space-x-1">
+        {/* Changed justify-center to justify-start and added mx-auto to allow scrolling from left on small screens while centering on large ones */}
+        <div className="flex justify-start min-w-max space-x-1 px-4 mx-auto">
           {bits.map((bit, index) => {
             let colorClass = "bg-slate-200 text-slate-500 hover:bg-slate-300";
             let label = "";
