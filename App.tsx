@@ -201,7 +201,7 @@ export default function App() {
               <Github size={18} className="mr-2 text-slate-400 group-hover:text-slate-900" />
               <span className="hidden sm:inline">GitHub</span>
             </a>
-            <a href="https://doi.org/10.5220/0013155000003890" target="_blank" rel="noreferrer" className="text-sm text-blue-600 hover:underline font-medium">
+            <a href="https://research-information.bris.ac.uk/en/publications/a-framework-for-developing-robust-machine-learning-models-in-hars/" target="_blank" rel="noreferrer" className="text-sm text-blue-600 hover:underline font-medium">
               View Paper
             </a>
           </div>
@@ -391,7 +391,7 @@ export default function App() {
                      <p className="max-w-3xl mx-auto text-slate-600 mb-4">
                        The framework successfully demonstrates that architectural choices can inherently protect AI models from hardware faults without expensive hardware redundancy. <strong>RWG</strong> offers a passive, computationally efficient shield against radiation-induced errors.
                      </p>
-                     <a href="https://doi.org/10.5220/0013155000003890" target="_blank" rel="noreferrer" className="text-blue-600 font-medium hover:underline inline-flex items-center">
+                     <a href="https://research-information.bris.ac.uk/en/publications/a-framework-for-developing-robust-machine-learning-models-in-hars/" target="_blank" rel="noreferrer" className="text-blue-600 font-medium hover:underline inline-flex items-center">
                        Read the full paper for more details 
                        <span className="ml-1">→</span>
                      </a>
