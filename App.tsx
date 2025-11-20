@@ -193,7 +193,7 @@ export default function App() {
             </div>
             <div>
               <h1 className="text-xl font-bold text-slate-900">SEU-Injection-Framework</h1>
-              <p className="text-xs text-slate-500 uppercase tracking-wider">Research by William Dennis</p>
+              <p className="text-xs text-slate-500 uppercase tracking-wider">Research by <a href="https://wd7512.github.io/home/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">William Dennis</a></p>
             </div>
           </div>
           <div className="flex items-center space-x-4 md:space-x-6">
