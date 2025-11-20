@@ -1,20 +1,22 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+## Build and Deploy Instructions
 
-# Run and deploy your AI Studio app
+1. Run `npm install` to ensure all dependencies (including gh-pages) are installed.
 
-This contains everything you need to run your app locally.
+2. Then run:
+   ```
+   npm run deploy
+   ```
 
-View your app in AI Studio: https://ai.studio/apps/drive/13DWTbHvPbfRA0kqWPAJu0RxNnUEHjvDu
+This will build and deploy your app to GitHub Pages at:
 
-## Run Locally
+https://wd7512.github.io/robust-ml-in-harsh-environments-explained/
 
-**Prerequisites:**  Node.js
+If you get an error running `npm run deploy`, try running:
 
+```
+npm run
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+to list all available scripts and verify "deploy" is present.
+
+If it’s missing, double-check you saved the edited package.json and are in the correct project folder.
